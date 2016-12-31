@@ -1,0 +1,19 @@
+# Dependencies
+markdown:         kramdown
+gems:             [jekyll-paginate]
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Hola
+tagline:          'Coffee, code and contemplation'
+description:      'Thoughts on making software for the web. Made by <a href="https://twitter.com/louismrose" target="_blank">@louismrose</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
+
+author:
+  name:           'Louis Rose'
+  url:            https://twitter.com/louismrose
+
+paginate:         5
