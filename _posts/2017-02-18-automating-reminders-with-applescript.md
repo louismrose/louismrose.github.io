@@ -33,7 +33,9 @@ tell application "Reminders"
 end tell
 ```
 
-This script calculates a date time for today at midnight, adds 17 hours to get a due date of "5pm today" and then adds the task to the Work list in Reminders.app. Running the script from a shell script is simple:
+This script calculates a date time for today at midnight, adds 17 hours to get a due date of "5pm today" and then adds the task to the Work list in Reminders.app.
+
+Running the script from a shell script is simple:
 
 ```bash
 osascript add_teardown_reminder.applescript
