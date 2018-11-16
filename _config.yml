@@ -9,8 +9,8 @@ permalink:        pretty
 title:            Hola
 tagline:          'Coffee, code and contemplation'
 description:      'Thoughts on making software for the web. Made by <a href="https://twitter.com/louismrose" target="_blank">@louismrose</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+url:              https://www.louismrose.com/
+baseurl:          https://www.louismrose.com/
 
 author:
   name:           'Louis Rose'
