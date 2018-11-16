@@ -36,7 +36,7 @@ To use the Listener, you'll need to add it to your `phpunit.xml`:
 
 Combine this with the `--testdox` flag to `phpunit` and you'll get a very basic glimpse into which of your tests is leaking environment changes, and causing a later test to fail:
 
-```sh
+```
 $ phpunit --filter EnvTest --testdox
 PHPUnit 5.7.27 by Sebastian Bergmann and contributors.
 
