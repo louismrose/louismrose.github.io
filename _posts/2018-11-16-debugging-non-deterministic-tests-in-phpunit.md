@@ -27,8 +27,8 @@ To use the Listener, you'll need to add it to your `phpunit.xml`:
 
   <listeners>
     <listener
-      class="ConfigCheckListener"
-      file="app/test/ConfigCheckListener.php"
+      class="AppEnvIsTestListener"
+      file="app/test/AppEnvIsTestListener.php"
     />
   </listeners>
 </phpunit>
