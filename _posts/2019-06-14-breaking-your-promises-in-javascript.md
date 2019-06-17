@@ -5,38 +5,42 @@ title: Breaking your promises in Javascript
 
 I love that modern Javascript supports promises, and the await/async syntax.
 But native promises can't (currently) be cancelled. This is a great shame, as
-it encourages disabling of user interface elements whilst an asynchronous piece
-of code is running.
+it can encourage developers to write unresponsive user interfaces.
 
 For example, suppose we're building a dashboard that is populated with data from
-an API. Each time the user adjusts the date, we want to load in the relevant
-data. It's tempting to code this such that the request fires and then our UI
-re-renders with the latest data. In React, we might write this as shown below.
-Note that the `datePickerEnabled` state is used to disable the date picker
-whilst there's an API request in flight.
+an API. Each time the user picks a new date on the dashboard, we want to load in
+ the relevant data. It's tempting to code this such that the request fires and
+ then our UI re-renders with the latest data. In React, we might write this as
+ shown below. Note that the `datePickerEnabled` state is used to disable the
+ date picker whilst there's an API request in flight.
 
 ```jsx
 import React, {useEffect, useState} from "react";
 import axios from "axios"; // for HTTP requests
 
 function Dashboard() {
-    // Initialise state for storing the current date and the current counter value
+    // Initialise state for storing the current date and the current
+    // counter value
     const [date, setDate] = useState(new Date);
     const [value, setValue] = useState("-");
 
-    // Initialise state for controlling whether or not to enable the date picker
+    // Initialise state for controlling whether or not to enable
+    // the date picker
     const [datePickerEnabled, setDatePickerEnabled] = useState(true);
 
-    // Prepare a function for loading the counter value by hitting an API
+    // Prepare a function for loading the counter value by hitting
+    // an API
     const loadValue = async (date) => {
         const newValue = await axios.get("/counter", {date});
         setValue(newValue);
     };
 
-    // Schedule loading of the counter value for when React mounts this component
+    // Schedule loading of the counter value for when React mounts
+    // this component
     useEffect(() => { loadValue(date) }, []);
 
-    // Prepare a function for updating the date and loading the relevant counter value
+    // Prepare a function for updating the date and loading the
+    // relevant counter value
     const onDateChange = async (newDate) => {
         setDate(newDate);
         setDatePickerEnabled(false);
@@ -47,7 +51,12 @@ function Dashboard() {
     // Render a date picker and the counter
     return (
         <div>
-            <DateRangePicker date={date} onChange={onDateChange} enabled={datePickerEnabled}/>
+            <DateRangePicker
+              date={date}
+              onChange={onDateChange}
+              enabled={datePickerEnabled}
+            />
+
             <Counter value={value}/>
         </div>
     )
@@ -73,23 +82,29 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function Dashboard() {
-    // Initialise state for storing the current date and the current counter value
+    // Initialise state for storing the current date and the current
+    // counter value
     const [date, setDate] = useState(new Date);
     const [value, setValue] = useState("-");
 
-    // Initialise state that stores a function for cancelling any previous promise
-    // Note: functions stored in React's useState must be wrapped (in a function)
-    const [cancelPreviousPromise, setCancelPreviousPromise] = useState(() => () => {});
+    // Initialise state that stores a function for cancelling any
+    // previous promise. Note: functions stored in React's useState
+    // must be wrapped (in a function)
+    const [cancelPreviousPromise, setCancelPreviousPromise] =
+      useState(() => () => {});
 
-    // Prepare a function for loading the counter value by hitting an API
+    // Prepare a function for loading the counter value by hitting
+    // an API
     const loadValue = async (date) => {
-        const [cancellablePromise, cancel] = cancellable(axios.get("/counter", {date}));
+        const [cancellablePromise, cancel] =
+          cancellable(axios.get("/counter", {date}));
 
         // Cancel the consequences of any previous promise
         cancelPreviousPromise();
 
         // Allow subsequent promises to be able to cancel updates
-        // Note: functions stored in React's useState must be wrapped (in a function)
+        // Note: functions stored in React's useState must
+        // be wrapped (in a function)
         setCancelPreviousPromise(() => cancel);
 
         try {
@@ -107,10 +122,12 @@ function Dashboard() {
         }
     };
 
-    // Schedule loading of the counter value for when React mounts this component
+    // Schedule loading of the counter value for when React mounts
+    // this component
     useEffect(() => { loadValue(date) }, []);
 
-    // Prepare a function for updating the date and loading the relevant counter value
+    // Prepare a function for updating the date and loading the
+    // relevant counter value
     const onDateChange = async (newDate) => {
         setDate(newDate);
         await loadValue(newDate);
@@ -119,7 +136,12 @@ function Dashboard() {
     // Render a date picker and the counter
     return (
         <div>
-            <DateRangePicker date={date} onChange={onDateChange} enabled/>
+            <DateRangePicker
+              date={date}
+              onChange={onDateChange}
+              enabled
+            />
+
             <Counter value={value}/>
         </div>
     )
@@ -139,7 +161,8 @@ const cancellable = (original) => {
     let cancel = () => {};
 
     const cancellation = new Promise(
-        (resolve, reject) => cancel = () => reject(new CancelledPromiseError(original)),
+        (resolve, reject) =>
+          cancel = () => reject(new CancelledPromiseError(original))
     );
 
     const wrapped = Promise.race([original, cancellation]);
