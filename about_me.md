@@ -5,6 +5,6 @@ title: About Me
 
 I'm Louis.
 
-I make software.
+I <a href="https://github.com/louismrose" target="_blank">make software</a>.
 
-I currently work at <a href="https://www.anaplan.com">Anaplan</a>.
+I currently work at <a href="https://www.zamzar.com" target="_blank">Zamzar</a>.

@@ -14,7 +14,7 @@ permalink:        pretty
 # Setup
 title:            Hola
 tagline:          'Coffee, code and contemplation'
-description:      'Thoughts on making software for the web. Made by <a href="https://twitter.com/louismrose" target="_blank">@louismrose</a>.'
+description:      'Thoughts on making software'
 url:              https://www.louismrose.com/
 baseurl:          https://www.louismrose.com/
 
