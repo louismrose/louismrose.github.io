@@ -4,8 +4,8 @@ This repo configures my website at louismrose.com. It's hosted on GitHub Pages, 
 
 ## Development
 
-* Install dependencies with: `sudo gem install bundler jekyll jekyll-paginate`
-* Serve locally with `jekyll serve`
+* Run `make up`
+* Visit `http://localhost:4000`
 * Deploy by pushing to `origin/master`
 
 ## Troubleshooting
