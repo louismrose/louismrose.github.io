@@ -1,8 +1,9 @@
-FROM ruby:3.3
+ARG RUBY_VERSION
+FROM ruby:${RUBY_VERSION}
 
 WORKDIR /site
 
-COPY Gemfile Gemfile.lock ./
+COPY .ruby-version Gemfile Gemfile.lock ./
 RUN NOKOGIRI_USE_SYSTEM_LIBRARIES=true bundle install
 
 COPY . .

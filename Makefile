@@ -1,9 +1,13 @@
 IMAGE := personal-website
 CONTAINER := personal-website
 
+RUBY_VERSION := $(shell cat .ruby-version)
+
 .PHONY: build
 build:
-	docker build -t $(IMAGE) .
+	docker build \
+		--build-arg RUBY_VERSION=$(RUBY_VERSION) \
+		-t $(IMAGE) .
 
 .PHONY: up
 up: build
