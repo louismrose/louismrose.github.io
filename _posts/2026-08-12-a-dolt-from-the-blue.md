@@ -1,6 +1,9 @@
 ---
 layout: post
 title: A Dolt from the blue
+tags:
+  - Dolt
+  - Git
 ---
 
 I've been playing with [Dolt](https://www.dolthub.com/docs/introduction/what-is-dolt/) lately. It's a SQL database, but 

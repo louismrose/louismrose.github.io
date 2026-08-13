@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<nav class="breadcrumbs">
+  <a href="{{ '/tag/' | relative_url }}">Tags</a>
+  <span aria-hidden="true">/</span>
+  <span>{{ page.title }}</span>
+</nav>
+
+<h1>Posts tagged "{{ page.title }}"</h1>
+
+<ul>
+  {% for post in page.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <small>{{ post.date | date_to_string }}</small>
+    </li>
+  {% endfor %}
+</ul>

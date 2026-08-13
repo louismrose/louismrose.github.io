@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Automating Reminders with AppleScript
+tags:
+  - AppleScript
 ---
 
 Occasionally, I need to provision a complete replica of our AWS production to get my work done. As you might imagine, this incurs a fairly hefty hourly charge and we try to avoid running this setup for any longer than necessary. Although I've tried to develop the habit of checking the AWS consoles before heading home for the day, I sometimes forget. We then run a completely unused production stack overnight, wasting a whole bunch of money and resources.

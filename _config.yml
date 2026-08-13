@@ -1,12 +1,21 @@
 # Dependencies
 highlighter:      rouge
 markdown:         kramdown
-plugins:          [jekyll-paginate]
+plugins:          [jekyll-archives, jekyll-paginate]
 
 # Dependency config
 kramdown:
   input:              GFM
   syntax_highlighter: rouge
+
+# Plugin config
+jekyll-archives:
+  enabled:
+    - tags
+  layouts:
+    tag: tag_archive
+  permalinks:
+    tag: /tag/:name/
 
 # Permalinks
 permalink:        pretty

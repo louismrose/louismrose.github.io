@@ -1,0 +1,28 @@
+<article class="post">
+    <h1 class="post-title">
+        {% if include.link_title %}
+        <a href="{{ include.post.url | relative_url }}">
+            {{ include.post.title }}
+        </a>
+        {% else %}
+        {{ include.post.title }}
+        {% endif %}
+    </h1>
+
+    <span class="post-date">
+    {{ include.post.date | date_to_string }}
+  </span>
+
+    {{ include.post.content }}
+
+    {% if include.post.tags.size > 0 %}
+    <div class="post-tags">
+        {% for tag in include.post.tags %}
+        <a class="post-tag"
+           href="{{ '/tag/' | relative_url }}{{ tag | slugify }}/">
+            #{{ tag }}
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</article>

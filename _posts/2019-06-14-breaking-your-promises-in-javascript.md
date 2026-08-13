@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Breaking your promises in Javascript
+tags:
+  - JavaScript
+  - React
 ---
 
 I love that modern Javascript supports promises, and the await/async syntax.

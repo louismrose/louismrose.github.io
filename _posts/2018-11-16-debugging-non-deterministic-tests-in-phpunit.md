@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Debugging non-deterministic tests in PHPUnit
+tags:
+  - PHP
+  - Testing
 ---
 
 You have a test that fails when run as part of your test suite. You re-run the test on its own, and it passes. What gives? More than likely you have a [non-deterministic test](https://martinfowler.com/articles/nonDeterminism.html), and probably a test that lacks isolation.

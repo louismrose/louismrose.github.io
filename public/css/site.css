@@ -1,0 +1,30 @@
+.breadcrumbs {
+    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    color: #9a9a9a;
+}
+.breadcrumbs a {
+    color: #9a9a9a;
+}
+.breadcrumbs a:hover {
+    color: #b94a48;
+}
+
+.post-tags {
+    margin-top: 1rem;
+}
+.post-tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.25rem;
+    background: #f5eeee;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+.post-tags .post-tag:hover,
+.post-tags .post-tag:focus {
+    background-color: #b94a48;
+    color: #fff;
+    text-decoration: none;
+}
